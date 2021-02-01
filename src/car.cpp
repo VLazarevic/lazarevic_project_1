@@ -23,7 +23,7 @@ Car Car::generateCar() {
     
     vector<string> carTypes = {"BMW", "VW"};
 
-    uniform_real_distribution<int> dis_2{0, carTypes.size()};
+    uniform_real_distribution<int> dis_2{0, (int) carTypes.size()};
     string name = carTypes[dis_2(gen)];
 
     // miliseconds
@@ -31,7 +31,7 @@ Car Car::generateCar() {
 
     int speed = dis_3(gen);
 
-    return Car(name, licensePlate);
+    return Car(name, licensePlate, speed);
 }
 
 std::string Car::getLicensePlate() {
