@@ -39,11 +39,11 @@ add_global_arguments('-I' + get_option('spdlog_include_dir'), language : 'cpp')
 # subdir('SUBDIR1')
 
 inc_dir = include_directories('include')
-src = ['src/main.cpp', 'src/trafficlight.cpp']
+src = ['src/main.cpp', 'src/trafficlight.cpp', 'src/util.cpp']
 #protobuf: src = ['src/main.cpp', generated]
 
 executable('project',
            sources : src,
            include_directories : inc_dir,
-           dependencies : [thread_dep, protobuf_dep]
+           dependencies : [thread_dep]
           )
