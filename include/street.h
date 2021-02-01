@@ -12,7 +12,7 @@ private:
     TrafficLight* light;
     Directions direction;
     int generateAmount;
-    queue<Car> carQueue;
+    std::queue<Car>* carQueue = new std::queue<Car>();
 public:
     Street(int generateAmount, TrafficLight* light, Directions direction);
     void startStreet();

@@ -42,6 +42,7 @@ int main() {
     eastStreet.join();
     southStreet.join();
     westStreet.join();
-
+    carFiller.join();
+    
     return 0;
 }
