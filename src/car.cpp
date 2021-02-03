@@ -14,17 +14,17 @@ Car Car::generateCar() {
 
     string licensePlate = "WN-" + to_string((int) dis(gen));
 
-    vector<string> carTypes = {"BMW", "VW"};
+    vector<string> carTypes = {"BMW", "VW", "AUDI", "MERCEDES", "PORSCHE"};
 
-    uniform_real_distribution<int> dis_2{0, (int) carTypes.size()};
-    string name = carTypes[dis_2(gen)];
-/*
+    uniform_real_distribution<> dis_2{0, (double) carTypes.size()};
+    string name = carTypes[(int) dis_2(gen)];
+
     // miliseconds
-    uniform_real_distribution<int> dis_3{500, 2500};
+    uniform_real_distribution<> dis_3{1000, 2500};
 
-    int speed = dis_3(gen);*/
+    int speed = (int) dis_3(gen);
 
-    return Car(name, licensePlate, 2500);
+    return Car(name, licensePlate, speed);
 }
 
 std::string Car::getLicensePlate() {
