@@ -40,7 +40,7 @@ void Street::startStreet() {
 }
 
 void Street::fillCarQueue() {
-    for(int i{0}; i < 4; i++) {
+    for(int i{0}; i < this->generateAmount; i++) {
         carQueue->push(Car::generateCar());
     }
 }

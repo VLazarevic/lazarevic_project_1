@@ -2,6 +2,11 @@
 #include "street.h"
 #include "car.h"
 #include "enums.h"
+#include "CLI11.hpp"
+
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-compare"
+#pragma GCC diagnostic pop
 
 #include <chrono>
 #include <iostream>
@@ -9,10 +14,17 @@
 
 using namespace std;
 
-//int main(int argc, char* argv[]) {
-int main() {
+int main(int argc, char* argv[]) {
 
-    int amount = 4;
+    CLI::App app("TrafficLight-Simulation");
+    
+    int respawnTime{0};
+    int amount{0};
+    
+    app.add_option("cars", amount, "How many cars after each respawn time respawns")->check(CLI::Number)->required();
+    app.add_option("respawntime", respawnTime, "The time interval in which new cars spawn")->check(CLI::Number)->required();
+
+    CLI11_PARSE(app, argc, argv);
 
     TrafficLight* light = new TrafficLight();
     Street* north = new Street(amount, light, NORTH);
@@ -33,7 +45,7 @@ int main() {
             east->fillCarQueue();
             south->fillCarQueue();
             west->fillCarQueue();
-            this_thread::sleep_for(chrono::milliseconds(3 * 1000));
+            this_thread::sleep_for(chrono::milliseconds(respawnTime * 1000));
         }
     });
 
@@ -43,6 +55,6 @@ int main() {
     southStreet.join();
     westStreet.join();
     carFiller.join();
-    
+
     return 0;
 }
