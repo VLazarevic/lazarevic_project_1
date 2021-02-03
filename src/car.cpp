@@ -8,8 +8,12 @@
 using namespace std;
 
 Car Car::generateCar() {
-    //random_device randomDevice;
-    //mt19937 gen{randomDevice()};
+    random_device randomDevice;
+    mt19937 gen{randomDevice()};
+    uniform_real_distribution<> dis{1000, 9999};
+
+    string licensePlate = "WN-" + to_string((int) dis(gen));
+
 /*
     uniform_real_distribution<int> dis_1{1000, 9999};
 
@@ -25,7 +29,7 @@ Car Car::generateCar() {
 
     int speed = dis_3(gen);*/
 
-    return Car("name", "licensePlate", 2500);
+    return Car("name", licensePlate, 2500);
 }
 
 std::string Car::getLicensePlate() {

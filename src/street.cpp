@@ -18,12 +18,18 @@ void Street::startStreet() {
         if(!carQueue->empty()) {
             if((this->direction == WEST || this->direction == EAST) && this->light->getWestEastColor() == GREEN) {
                 Car nextCar = carQueue->front();
-                println(nextCar.getName(), nextCar.getLicensePlate(), "drives away from ", this->direction);
+                if(this->direction == WEST)
+                    println(nextCar.getName(), " ", nextCar.getLicensePlate(), " drives away from WEST");
+                else
+                    println(nextCar.getName(), " ", nextCar.getLicensePlate(), " drives away from EAST");
                 this_thread::sleep_for(chrono::milliseconds(nextCar.getSpeed()));
                 carQueue->pop();
             } else if((this->direction == NORTH || this->direction == SOUTH) && this->light->getNorthSouthColor() == GREEN) {
                 Car nextCar = carQueue->front();
-                println(nextCar.getName(), nextCar.getLicensePlate(), "drives away from ", this->direction);
+                if(this->direction == NORTH)
+                    println(nextCar.getName(), " ", nextCar.getLicensePlate(), " drives away from NORTH");
+                else
+                    println(nextCar.getName(), " ", nextCar.getLicensePlate(), " drives away from SOUTH");
                 this_thread::sleep_for(chrono::milliseconds(nextCar.getSpeed()));
                 carQueue->pop();
             }
