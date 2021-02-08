@@ -7,16 +7,30 @@
 
 using namespace std;
 
+string random_string( size_t length )
+{
+    auto randchar = []() -> char
+    {
+        const char charset[] =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const size_t max_index = (sizeof(charset) - 1);
+        return charset[ rand() % max_index ];
+    };
+    string str(length,0);
+    generate_n( str.begin(), length, randchar );
+    return str;
+}
+
 Car Car::generateCar() {
     random_device randomDevice;
     mt19937 gen{randomDevice()};
-    uniform_real_distribution<> dis{1000, 9999};
-
     
-    vector<string> districtTypes = {"AM", "BN", "BL", "GD", "GF", "HL", "HO", "KO", "KR", "KS", "LF", "MD", "ME", "MI", "NK", "P", "SP", "WN", "WB"};
-    uniform_real_distribution<> dis_4{0, (double) districtTypes.size()};
+    vector<string> districtTypes = {"AM", "BN", "BL", "GD", "GF", "HL", "HO", "KO", "KR", "KS", "LF", "MD", "ME", "MI", "NK", "P", "SP", 
+                                    "SB", "SW", "TU", "WN", "WB", "WT", "WY", "ZT"};
+    uniform_real_distribution<> dis{0, (double) districtTypes.size()};
 
-    string licensePlate = districtTypes[(int) dis_4(gen)] + "-" + to_string((int) dis(gen));
+    string licensePlate = districtTypes[(int) dis(gen)] + "-" + random_string(5);
 
     vector<string> carTypes = {"BMW", "VW", "AUDI", "MERCEDES", "PORSCHE", "OPEL", "NISSAN", "MAZDA", "TOYOTA", "HONDA", "PEUGEOT"};
 
