@@ -40,6 +40,7 @@ void Street::startStreet() {
 }
 
 void Street::fillCarQueue() {
+    logger("Cars are pushed in the queue");
     for(int i{0}; i < this->generateAmount; i++) {
         carQueue->push(Car::generateCar());
     }

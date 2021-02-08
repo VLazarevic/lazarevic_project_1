@@ -4,7 +4,9 @@
 #include "car.h"
 #include "enums.h"
 
+#include <iostream>
 #include <queue>
+#include <fstream>
 
 class Street
 {
@@ -17,4 +19,26 @@ public:
     Street(int generateAmount, TrafficLight* light, Directions direction);
     void startStreet();
     void fillCarQueue();
+
+    inline std::string getCurrentTime(std::string s){
+            time_t now = time(0);
+            struct tm tstruct;
+            char buf[80];
+            tstruct = *localtime(&now);
+            if(s=="now"){
+                strftime(buf, sizeof(buf), "%Y-%m-%d %X", &tstruct);
+            }else if(s=="date"){
+                strftime(buf, sizeof(buf), "%Y-%m-%d", &tstruct);
+            }
+            return std::string(buf);
+        }
+
+    inline void logger(std::string logMsg){
+        std::string filePath = "/log/log_" + getCurrentTime("date") + ".txt";
+        std::string now = getCurrentTime("now");
+        std::cout << filePath;
+        std::ofstream ofs(filePath, std::ios_base::out | std::ios_base::app );
+        ofs << now << '\t' << logMsg << '\n' << std::flush;
+        ofs.close();
+    }
 };

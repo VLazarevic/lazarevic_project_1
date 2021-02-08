@@ -21,8 +21,8 @@ int main(int argc, char* argv[]) {
     int respawnTime{0};
     int amount{0};
     
-    app.add_option("cars", amount, "How many cars after each respawn time respawns")->check(CLI::Number)->required();
-    app.add_option("respawntime", respawnTime, "The time interval in which new cars spawn")->check(CLI::Number)->required();
+    app.add_option("cars", amount, "How many cars after each respawn time respawns\n")->check(CLI::Number)->required();
+    app.add_option("respawntime", respawnTime, "The time interval in which new cars spawn\n")->check(CLI::Number)->required();
 
     CLI11_PARSE(app, argc, argv);
 
