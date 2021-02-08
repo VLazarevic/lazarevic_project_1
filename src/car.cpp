@@ -12,9 +12,13 @@ Car Car::generateCar() {
     mt19937 gen{randomDevice()};
     uniform_real_distribution<> dis{1000, 9999};
 
-    string licensePlate = "WN-" + to_string((int) dis(gen));
+    
+    vector<string> districtTypes = {"AM", "BN", "BL", "GD", "GF", "HL", "HO", "KO", "KR", "KS", "LF", "MD", "ME", "MI", "NK", "P", "SP", "WN", "WB"};
+    uniform_real_distribution<> dis_4{0, (double) districtTypes.size()};
 
-    vector<string> carTypes = {"BMW", "VW", "AUDI", "MERCEDES", "PORSCHE"};
+    string licensePlate = districtTypes[(int) dis_4(gen)] + "-" + to_string((int) dis(gen));
+
+    vector<string> carTypes = {"BMW", "VW", "AUDI", "MERCEDES", "PORSCHE", "OPEL", "NISSAN", "MAZDA", "TOYOTA", "HONDA", "PEUGEOT"};
 
     uniform_real_distribution<> dis_2{0, (double) carTypes.size()};
     string name = carTypes[(int) dis_2(gen)];
