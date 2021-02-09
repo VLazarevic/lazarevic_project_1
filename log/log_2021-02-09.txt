@@ -1,0 +1,25 @@
+2021-02-09 17:15:40	NORTH and SOUTH are green
+2021-02-09 17:15:45	The traffic light is yellow
+2021-02-09 17:15:50	WEST and EAST are green
+2021-02-09 17:18:06	NORTH and SOUTH are green
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:06	Cars are pushed in the queue
+2021-02-09 17:18:11	The traffic light is yellow
+2021-02-09 17:18:16	Cars are pushed in the queue
+2021-02-09 17:18:16	Cars are pushed in the queue
+2021-02-09 17:18:16	WEST and EAST are green
+2021-02-09 17:18:16	Cars are pushed in the queue
+2021-02-09 17:18:16	Cars are pushed in the queue
+2021-02-09 17:18:21	The traffic light is yellow
+2021-02-09 17:18:26	Cars are pushed in the queue
+2021-02-09 17:18:26	Cars are pushed in the queue
+2021-02-09 17:18:26	NORTH and SOUTH are green
+2021-02-09 17:18:26	Cars are pushed in the queue
+2021-02-09 17:18:26	Cars are pushed in the queue
+2021-02-09 17:18:31	The traffic light is yellow

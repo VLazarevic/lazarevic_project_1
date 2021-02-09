@@ -34,10 +34,13 @@ public:
         }
 
     inline void logger(std::string logMsg){
-        std::string filePath = "/log/log_" + getCurrentTime("date") + ".txt";
+        std::string filePath = "../log/log_" + getCurrentTime("date") + ".txt";
         std::string now = getCurrentTime("now");
-        //std::cout << filePath;
-        std::ofstream ofs(filePath, std::ios_base::out | std::ios_base::app );
+        std::fstream ofs;
+            ofs.open(filePath, std::ios_base::out | std::ios_base::app );
+            if(!ofs.good()){
+                std::cout << "Logging has a problem!";
+            }
         ofs << now << '\t' << logMsg << '\n' << std::flush;
         ofs.close();
     }
