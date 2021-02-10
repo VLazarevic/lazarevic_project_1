@@ -1,3 +1,9 @@
+/**
+ * projectname: TrafficLight - Simulation 
+ * author: Valentino Lazarevic
+ * Desc: Implementation of Street class
+ * */
+
 #include "street.h"
 #include "util.h"
 #include "rang.hpp"
@@ -8,12 +14,14 @@
 using namespace std;
 using namespace rang;
 
+//Street constructor
 Street::Street(int generateAmount, TrafficLight* light, Directions direction) {
     this->light = light;
     this->direction = direction;
     this->generateAmount = generateAmount;
 }
 
+//checking which sides are green to let the cars drive
 void Street::startStreet() {
     fillCarQueue();
     while(true) {
@@ -39,6 +47,7 @@ void Street::startStreet() {
     }   
 }
 
+//like the function name says it fills the car queue
 void Street::fillCarQueue() {
     logger("Cars are pushed in the queue");
     for(int i{0}; i < this->generateAmount; i++) {

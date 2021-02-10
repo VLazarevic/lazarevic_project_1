@@ -1,3 +1,10 @@
+/**
+ * projectname: TrafficLight - Simulation 
+ * author: Valentino Lazarevic
+ * Desc: Definition of Car class and implemtation of the constructoe
+ * */
+
+
 #pragma once
 
 #include <iostream>

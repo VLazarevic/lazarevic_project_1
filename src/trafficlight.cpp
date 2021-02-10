@@ -1,3 +1,9 @@
+/**
+ * projectname: TrafficLight - Simulation 
+ * author: Valentino Lazarevic
+ * Desc: Implementation of Trafficlight class
+ * */
+
 #include "trafficlights.h"
 #include "util.h"
 #include "rang.hpp"
@@ -20,6 +26,7 @@ TrafficColor TrafficLight::getWestEastColor() {
     return this->colorWestEast;
 }
 
+//set or control the TrafficLight: green, red or yellow and give the right outputs to the stages
 void TrafficLight::startTrafficLight() {
     int counter{0};
     bool NorthSouth = false;
@@ -35,6 +42,7 @@ void TrafficLight::startTrafficLight() {
             this->colorWestEast = GREEN;
             println("[TrafficLight] ", fg::green, "West and East Light is now GREEN", style::reset);
             counter = 1;
+            this_thread::sleep_for(1000ms);
         }else if(counter == 1 && NorthSouth == true) {
             lock_guard<mutex> lock(this->l_mutex);
             logger("The traffic light is yellow");
@@ -61,6 +69,7 @@ void TrafficLight::startTrafficLight() {
             this->colorWestEast = RED;
             println("[TrafficLight] ", fg::red, "West and East Light is now RED", style::reset);
             counter++;
+            this_thread::sleep_for(100ms);
         }
         this_thread::sleep_for(5000ms);
     }

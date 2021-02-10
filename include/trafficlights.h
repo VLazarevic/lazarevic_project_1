@@ -1,3 +1,10 @@
+/**
+ * projectname: TrafficLight - Simulation 
+ * author: Valentino Lazarevic
+ * Desc: Definition of trafficlight class and the inline logger functions
+ * */
+
+
 #pragma once
 
 #include "enums.h"

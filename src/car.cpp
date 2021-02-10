@@ -1,5 +1,10 @@
-#include "car.h"
+/**
+ * projectname: TrafficLight - Simulation 
+ * author: Valentino Lazarevic
+ * Desc: Car class where the logic of the functions are implemented
+ * */
 
+#include "car.h"
 #include <iostream>
 #include <chrono>
 #include <vector>
@@ -7,6 +12,7 @@
 
 using namespace std;
 
+//generate a random string, that get used by defining the license plate
 string random_string( size_t length )
 {
     auto randchar = []() -> char
@@ -22,6 +28,7 @@ string random_string( size_t length )
     return str;
 }
 
+//generate the car, with the attributes: name, licensePlate, speed
 Car Car::generateCar() {
     random_device randomDevice;
     mt19937 gen{randomDevice()};
